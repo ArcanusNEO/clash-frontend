@@ -15,10 +15,16 @@ public:
   MainWindow(QWidget* parent = nullptr);
   ~MainWindow();
 
+  void resetOverview();
+  void resetProxies();
+  void resetRules();
+  void resetLogs();
+  void resetConfigs();
+
 private:
   Ui::MainWindow* ui;
   std::unique_ptr<QTabWidget> ptabs;
-  std::unique_ptr<QWidget> poverview, pproxyies, prules, plogs;
+  std::unique_ptr<QWidget> poverview, pproxies, prules, plogs, pconfig;
 
 protected:
   void paintEvent(QPaintEvent* event);
