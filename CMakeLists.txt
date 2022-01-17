@@ -26,6 +26,8 @@ set(PROJECT_SOURCES
         ${TS_FILES}
 )
 
+add_library(ClashControlBot SHARED src/ClashControlBot.cc)
+
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(clash-frontend
         MANUAL_FINALIZATION
@@ -53,7 +55,7 @@ else()
     qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
 endif()
 
-target_link_libraries(clash-frontend PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(clash-frontend PRIVATE Qt${QT_VERSION_MAJOR}::Widgets ClashControlBot)
 
 set_target_properties(clash-frontend PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
